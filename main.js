@@ -42,7 +42,7 @@ function createWindow () {
   let {url} = store.get('url');
 
   //Si es la primera vez que entra: mostrar en index que debe ir a preferencias y poner una url base
-  if(url == 'no'){
+  if(url == ''){
     mainWindow.loadFile('index.html');
   }else{
     mainWindow.loadURL(url);
