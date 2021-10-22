@@ -10,10 +10,10 @@ const store = new Store({
   defaults: {
     windowBounds: { 
       width: 800, 
-      height: 600
+      height: 700
     },
     url:{
-      url: 'https://cli.siadon.com.ar'
+      url: ''
     }
   }
 });
@@ -23,6 +23,8 @@ const store = new Store({
 function createWindow () {
   let { width, height} = store.get('windowBounds');
   mainWindow = new BrowserWindow({
+    icon: __dirname + '/assets/img/logo.png',
+    title: "Enrutador",
     width: width,
     height: height,
     autoHideMenuBar: true
@@ -33,15 +35,26 @@ function createWindow () {
     store.set('windowBounds', { width, height });
   });
 
+  mainWindow.on('close', () => {
+    app.quit()
+  });
+
   let {url} = store.get('url');
 
   //Si es la primera vez que entra: mostrar en index que debe ir a preferencias y poner una url base
+  if(url == 'no'){
+    mainWindow.loadFile('index.html');
+  }else{
+    mainWindow.loadURL(url);
+  }
 
-  mainWindow.loadURL(url)
 }
 
 function createWindowPreferences () {
   const preferencesWindow = new BrowserWindow({
+    icon: __dirname + '/assets/img/logo.png',
+    title: "Preferencias",
+    parent: mainWindow,
     width: 600,
     height: 400,
     // show: false,
@@ -52,8 +65,8 @@ function createWindowPreferences () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-
-  preferencesWindow.loadFile('preferencias.html')
+  
+  preferencesWindow.loadFile('preferencias.html');
 }
 
 
@@ -163,3 +176,20 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
+
+//Funciones desde preload.js
+const ipc = require('electron').ipcMain;
+
+ipc.on('aSynMessage', (event, args) => {
+//  console.log(args);
+  if(args == 'update mainWindow'){
+    let {url} = store.get('url');
+    if(url == ''){
+      mainWindow.loadFile('index.html');
+    }else{
+      mainWindow.loadURL(url);
+    }
+  }
+//  event.sender.send('asynReply','Main said: Async message received')
+});
