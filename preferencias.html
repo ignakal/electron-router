@@ -17,8 +17,10 @@
             <input type="text" class="form-control bg-light" id="url-base" >
         </div>
 
-        <br>
-        
+        <div class="alert alert-success" style="padding: 0.5rem 0.5rem;" role="alert" id="mensaje-guardado-correcto">
+            ¡Guardado correctamente!
+        </div>
+
         <h4>Información:</h4>
         <p>
             Node.js <span id="node-version">0</span> <br>
@@ -26,14 +28,15 @@
             Electron <span id="electron-version">0</span> <br>
             Enrutador <span id="enrutador-version">0</span> <br>
         </p>
-        
+        <div class="row">
+            <div class="col text-start">
+              <button class="btn btn-primary" type="button" id="btn-guardar">Guardar preferencias</button>
+            </div>
+            <div class="col text-end">
+              <button class="btn btn-danger" type="button" onclick="window.close();">Cerrar</button>
+            </div>
+          </div>
         <br>
-
-        <div class="d-grid gap-4 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary" type="button">Guardar preferencias</button>
-            <button class="btn btn-danger" type="button" onclick="window.close();">Cerrar</button>
-        </div>
-        <br><br>
     </div>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     
