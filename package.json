@@ -1,0 +1,17 @@
+{
+  "name": "enrutador",
+  "version": "1.0.0",
+  "description": "Hacer Programa cualquier WebApp",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Siadon",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^15.2.0"
+  },
+  "dependencies": {
+    "electron-store": "^8.0.1"
+  }
+}

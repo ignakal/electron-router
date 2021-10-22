@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Preferencias</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="renderer.js"></script>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <h2 class="text-center">Preferncias del enrutador</h2>
+        
+        <div class="input-group mb-3">
+            <span class="input-group-text">URL base:</span>
+            <input type="text" class="form-control bg-light" id="url-base" >
+        </div>
+
+        <br>
+        
+        <h4>Información:</h4>
+        <p>
+            Node.js <span id="node-version">0</span> <br>
+            Chromium <span id="chrome-version">0</span> <br>
+            Electron <span id="electron-version">0</span> <br>
+            Enrutador <span id="enrutador-version">0</span> <br>
+        </p>
+        
+        <br>
+
+        <div class="d-grid gap-4 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary" type="button">Guardar preferencias</button>
+            <button class="btn btn-danger" type="button" onclick="window.close();">Cerrar</button>
+        </div>
+        <br><br>
+    </div>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>
