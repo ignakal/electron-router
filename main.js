@@ -132,7 +132,7 @@ const template = [
     ]
   },
   {
-    label: 'Window',
+    label: 'Ventana',
     submenu: [
       { label: 'Minimizar', role: 'minimize' },
       { label: 'Zoom', role: 'zoom' },
